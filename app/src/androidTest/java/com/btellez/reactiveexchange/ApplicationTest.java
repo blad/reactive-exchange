@@ -1,4 +1,4 @@
-package com.btellez.coinbaseexecutions;
+package com.btellez.reactiveexchange;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

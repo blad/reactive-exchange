@@ -1,4 +1,4 @@
-package com.btellez.coinbaseexecutions;
+package com.btellez.reactiveexchange;
 
 import org.junit.Test;
 

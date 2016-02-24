@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Coinbase Executions</string>
+    <string name="currency">$%.02f</string>
+    <string name="coma_separated">%,d</string>
 </resources>
