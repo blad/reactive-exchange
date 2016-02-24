@@ -4,9 +4,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
-    dataBinding {
-        enabled = true
-    }
+    // TODO: Enable Data Binding
 
     defaultConfig {
         applicationId "com.btellez.coinbaseexecutions"

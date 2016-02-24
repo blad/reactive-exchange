@@ -1,5 +1,6 @@
 package com.btellez.reactiveexchange.model;
 
+// Based on the JSON from Coinbase Exchange API
 public class CoinbaseTransaction {
   public String type;
   public String time;
@@ -13,6 +14,6 @@ public class CoinbaseTransaction {
 
 
   @Override public String toString() {
-    return "[" + type + " " + order_type + " " +  price + "]";
+    return "[" + type + " " + side + " " +  price + "]";
   }
 }

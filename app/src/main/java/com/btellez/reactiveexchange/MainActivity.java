@@ -26,16 +26,12 @@ public class MainActivity extends AppCompatActivity {
     ExchangeTransactionStats statsModel = new ExchangeTransactionStats();
 
     CoinbaseWebsocket ws = new CoinbaseWebsocket();
-    Observable webSocketObserver = Observable.create(ws);
 
-    Observable<CoinbaseTransaction> transactionStream =
-      webSocketObserver
-        .filter(new FilterMatchedTransactions())
-        .map(new JsonStringToTransaction());
+    // TODO: Create Observable from Websocket
+    // TODO: Create Observable of CoinbaseTransaction objects
 
     // Subscribe to Events
-    transactionStream.subscribe(new UpdateTransactionStats(statsModel));
-    transactionStream.subscribe(new LogToConsole());
+    // TODO: Subscribe to Events
 
     initWebsocket(ws); // Start Producing Items:
     initView(statsModel); // Init the View
@@ -43,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
 
   private void initView(ExchangeTransactionStats statsSource) {
-    ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-    binding.setExchangeStats(statsSource);
+    // TODO: User DataBindingUtil to setContentView
+    // TODO: setExchangeStats source model
   }
 
 
