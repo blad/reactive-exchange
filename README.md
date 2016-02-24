@@ -12,6 +12,10 @@ Explore RxAndroid and Reactive Programming Paradigms in Android
 - [RxJava](https://github.com/ReactiveX/RxAndroid): ReactiveX Binding for Android
 - [AndroidAsync](https://github.com/koush/AndroidAsync): Asynchronous Socket Library for Android
 
+## Data Flow
+Reactive Exchange follows a unidirectional data flow where events enter a the application via an `Observable`. The `Observable` then allows us to react to events in the system accordingly by propagating through a set of filtering, transformation, and reduction functions. The resulting events are then passed on to subscribers that effect a change in the application.
+
+![Data Flow](https://raw.githubusercontent.com/blad/reactive-exchange/master/assets/ReactiveExchangeDataFlow.png)
 ## License: The MIT License (MIT)
 
 ```
