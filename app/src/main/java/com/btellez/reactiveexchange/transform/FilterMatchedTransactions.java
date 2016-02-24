@@ -1,4 +1,4 @@
-package com.btellez.reactiveexchange.action;
+package com.btellez.reactiveexchange.transform;
 
 import rx.functions.Func1;
 

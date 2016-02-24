@@ -5,16 +5,20 @@ import com.btellez.reactiveexchange.model.ExchangeTransactionStats;
 
 import rx.functions.Action1;
 
-/**
- * Created by tellez on 2/23/16.
- */
 public class UpdateTransactionStats implements Action1<CoinbaseTransaction> {
 
-  private final ExchangeTransactionStats stats = new ExchangeTransactionStats();
+  private ExchangeTransactionStats stats;
+
+
+  public UpdateTransactionStats(ExchangeTransactionStats stats) {
+    this.stats = stats;
+  }
+
 
   public ExchangeTransactionStats getStats() {
     return stats;
   }
+
 
   @Override public void call(CoinbaseTransaction transaction) {
     float nextPrice = Float.valueOf(transaction.price);

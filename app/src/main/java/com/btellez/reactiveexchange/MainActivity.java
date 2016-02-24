@@ -4,12 +4,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.btellez.reactiveexchange.action.FilterMatchedTransactions;
 import com.btellez.reactiveexchange.action.LogToConsole;
 import com.btellez.reactiveexchange.action.UpdateTransactionStats;
 import com.btellez.reactiveexchange.databinding.ActivityMainBinding;
 import com.btellez.reactiveexchange.model.CoinbaseTransaction;
 import com.btellez.reactiveexchange.model.ExchangeTransactionStats;
+import com.btellez.reactiveexchange.transform.FilterMatchedTransactions;
 import com.btellez.reactiveexchange.transform.JsonStringToTransaction;
 import com.koushikdutta.async.http.AsyncHttpClient;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    UpdateTransactionStats tranactionStats = new UpdateTransactionStats();
+    ExchangeTransactionStats statsModel = new ExchangeTransactionStats();
 
     CoinbaseWebsocket ws = new CoinbaseWebsocket();
     Observable webSocketObserver = Observable.create(ws);
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         .map(new JsonStringToTransaction());
 
     // Subscribe to Events
-    transactionStream.subscribe(tranactionStats);
+    transactionStream.subscribe(new UpdateTransactionStats(statsModel));
     transactionStream.subscribe(new LogToConsole());
 
     initWebsocket(ws); // Start Producing Items:
-    initView(tranactionStats.getStats()); // Init the View
+    initView(statsModel); // Init the View
   }
 
 
